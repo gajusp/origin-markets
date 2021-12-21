@@ -9,6 +9,7 @@ export class EnvService {
   constructor() {
     const browserWindow = window || {};
 
+    // tslint:disable-next-line: no-string-literal
     const browserWindowEnv = browserWindow['__env'] || {};
 
     Object.assign(this, { ...browserWindowEnv });

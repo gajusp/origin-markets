@@ -1,22 +1,14 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  Input,
-  OnDestroy,
-  OnInit
-} from "@angular/core";
-import { FormGroup } from "@angular/forms";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { TodoModel } from "src/app/models/todo.model";
-import { AppService } from "src/app/services/app.service";
-
+import { TodoModel } from 'src/app/models/todo.model';
+import { AppService } from 'src/app/services/app.service';
 
 @Component({
-  selector: "app-todo",
-  templateUrl: "./todo.component.html",
+  selector: 'app-todo',
+  templateUrl: './todo.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoComponent implements OnInit, OnDestroy {
@@ -27,10 +19,7 @@ export class TodoComponent implements OnInit, OnDestroy {
   todoFormGrp: FormGroup;
   selectedTodoItem: TodoModel;
 
-  constructor(
-    private appService: AppService,
-    private cdRef: ChangeDetectorRef
-  ) {
+  constructor(private appService: AppService, private cdRef: ChangeDetectorRef) {
     this.getAllTodo();
   }
 
@@ -40,38 +29,31 @@ export class TodoComponent implements OnInit, OnDestroy {
 
   /**
    * Add or Update the todo task
-   * @param todo model
+   * @param todo model - new todo model
    */
   onAddUpdateTodoItem(todoModel: TodoModel): void {
     // Update todo task
     if (this.selectedTodoItem) {
-      this.appService.updateTodoItem(todoModel)
-        .pipe(takeUntil(this.unsubscribeAll))
-        .subscribe(this.onResetFormGroup.bind(this));
+      this.appService.updateTodoItem(todoModel).pipe(takeUntil(this.unsubscribeAll)).subscribe(this.onResetFormGroup.bind(this));
 
       return;
     }
 
     // Add todo task
-    this.appService.addTodoItem(todoModel)
-      .pipe(takeUntil(this.unsubscribeAll))
-      .subscribe(this.onResetFormGroup.bind(this));
+    this.appService.addTodoItem(todoModel).pipe(takeUntil(this.unsubscribeAll)).subscribe(this.onResetFormGroup.bind(this));
   }
 
   /**
    * Mark as complete todo task
-   * @param todoModel
+   * @param todoModel - mark as done
    */
   onMarkTodo(todoModel: TodoModel): void {
-    this.appService
-      .updateTodoItem(todoModel)
-      .pipe(takeUntil(this.unsubscribeAll))
-      .subscribe(this.getAllTodo.bind(this));
+    this.appService.updateTodoItem(todoModel).pipe(takeUntil(this.unsubscribeAll)).subscribe(this.getAllTodo.bind(this));
   }
 
   /**
    * Update mode - modify the existing todo task
-   * @param todoModel
+   * @param todoModel - update the todo task
    */
   onUpdateTodo(todoModel: TodoModel): void {
     this.selectedTodoItem = todoModel;
@@ -81,7 +63,7 @@ export class TodoComponent implements OnInit, OnDestroy {
     // scroll to top of the screen
     window.scroll({
       top: 0,
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
 
     this.cdRef.markForCheck();
@@ -89,16 +71,12 @@ export class TodoComponent implements OnInit, OnDestroy {
 
   /**
    * Delete todo task
-   * @param todoModel 
+   * @param todoModel - delete the todo task
    */
   onDeleteTodo(todoModel: TodoModel): void {
-    this.appService
-      .removeTodoItem(todoModel.id)
-      .pipe(takeUntil(this.unsubscribeAll))
-      .subscribe(this.onResetFormGroup.bind(this));
+    this.appService.removeTodoItem(todoModel.id).pipe(takeUntil(this.unsubscribeAll)).subscribe(this.onResetFormGroup.bind(this));
 
-
-    //  this.todoListColl.splice(index,1); // can also used to remove the todo task 
+    // this.todoListColl.splice(index,1); // can also used to remove the todo task.
   }
 
   /**
