@@ -1,4 +1,4 @@
-@import "../../../../assets/variable";
+@import "../../../../styles/variable";
 
 .todo-list-header {
   display: flex;
@@ -66,16 +66,19 @@
         .task-title {
           font-size: 1.25rem;
           font-weight: bold;
-          padding-right: 1.25rem;
+
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
 
           @include small-phone-only {
-            font-size: 0.8rem;
-            padding-right: 0.9rem;
+            width: 150px;
+            font-size: 0.9rem;
+          }
 
-            width: 110px;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
+          @media (max-width: 330px) {
+            width: 120px;
+            font-size: 0.85rem;
           }
         }
       }

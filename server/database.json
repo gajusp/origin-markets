@@ -12,21 +12,21 @@
       "label": "Hall Cleanup",
       "description": "Clean my dirty kitchen",
       "category": "house",
-      "done": true
+      "done": false
     },
     {
       "id": 3,
       "label": "Bank appointment",
       "description": "Gym appointment on 23 Dec 2021 @02 pm",
       "category": "appointment",
-      "done": false
+      "done": true
     },
     {
       "id": 4,
       "label": "Broadband Bill",
       "description": "Pay broadband bill using credit card or other payment options.",
       "category": "bureaucracy",
-      "done": false
+      "done": true
     },
     {
       "id": 5,
