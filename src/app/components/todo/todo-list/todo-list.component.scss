@@ -1,0 +1,129 @@
+@import "../../../../styles/variable";
+
+.todo-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+
+  .todo-list-header-title {
+    margin-bottom: -0.6rem;
+
+    @include phone-only {
+      width: 200px;
+    }
+  }
+
+  .todo-list-header-filter {
+    font-weight: 600;
+
+    .filter-content {
+      display: flex;
+      justify-content: center;
+
+      .filter-type-icon {
+        width: 23px;
+        height: 27px;
+        background: transparent url("../../../../assets/icons/filter.svg")
+          no-repeat left 0 center;
+        background-size: 23px;
+        display: inline-block;
+      }
+
+      .btn-outline-primary {
+        color: #2f2f30;
+        background-color: $white;
+        border-color: $black;
+        font-weight: 700;
+        font-size: 1rem;
+        padding: 0 2.3rem;
+        width: 160px;
+
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
+
+.todo-list-container {
+  .todo-task {
+    width: 100%;
+    height: auto;
+    padding: 0.5rem;
+    border: 2px solid $grey-color;
+    border-radius: 5px 5px;
+
+    .todo-task-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #b4b3b7fa;
+      padding-right: 5px;
+
+      .todo-task-header-title {
+        .task-title {
+          font-size: 1.25rem;
+          font-weight: bold;
+
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+
+          @include small-phone-only {
+            width: 150px;
+            font-size: 0.9rem;
+          }
+
+          @media (max-width: 330px) {
+            width: 120px;
+            font-size: 0.85rem;
+          }
+        }
+      }
+
+      .todo-task-header-action-btn {
+        .action-icon {
+          width: 23px;
+          height: 23px;
+          background-size: 23px;
+        }
+
+        .mr-space {
+          margin-right: 1.3rem;
+
+          @include small-phone-only {
+            margin-right: 1rem;
+            padding-bottom: 0.3rem;
+          }
+        }
+      }
+    }
+
+    .todo-task-desc {
+      width: 100%;
+      padding-top: 0.5rem;
+    }
+  }
+
+  .task-complete {
+    border: 3px solid $todo-list-bg-color;
+  }
+
+  .strike-through-task {
+    text-decoration: line-through;
+  }
+}
+
+.dropdown-item {
+  &:active {
+    background-color: $todo-list-bg-color;
+    color: white;
+    font-weight: bold;
+  }
+}
+
+.selected-filter-type {
+  font-weight: bold;
+}

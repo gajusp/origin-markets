@@ -1,0 +1,61 @@
+@import "./variable";
+
+.form-group {
+  margin-bottom: 0.8rem;
+
+  label {
+    padding-bottom: 0.5rem;
+  }
+
+  .form-control {
+    transition: all 0.3s ease-in-out;
+
+    &::placeholder {
+      font-size: 15px;
+      color: #979797;
+    }
+
+    &.ng-invalid.ng-touched:not(:disabled):not([readonly]) {
+      border: solid 2px rgb(144, 6, 6);
+    }
+
+    &:focus {
+      border-width: 2px;
+      box-shadow: none;
+    }
+
+    &:disabled,
+    &[readonly] {
+      opacity: 0.5;
+      background-color: #fff;
+      box-shadow: none;
+    }
+  }
+}
+
+/* Hide HTML5 Up and Down arrows. */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+select.form-control {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 50px;
+
+  font-size: 15px;
+
+  background: $white url("../assets/icons/drop-down.svg") no-repeat right 20px
+    center;
+  background-size: 14px 8px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &::-ms-expand {
+    display: none;
+  }
+}

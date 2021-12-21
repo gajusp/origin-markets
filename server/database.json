@@ -1,0 +1,67 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "label": "Kitchen Cleanup",
+      "description": "Clean my dirty kitchen",
+      "category": "house",
+      "done": false
+    },
+    {
+      "id": 2,
+      "label": "Hall Cleanup",
+      "description": "Clean my dirty kitchen",
+      "category": "house",
+      "done": false
+    },
+    {
+      "id": 3,
+      "label": "Bank appointment",
+      "description": "Gym appointment on 23 Dec 2021 @02 pm",
+      "category": "appointment",
+      "done": true
+    },
+    {
+      "id": 4,
+      "label": "Broadband Bill",
+      "description": "Pay broadband bill using credit card or other payment options.",
+      "category": "bureaucracy",
+      "done": true
+    },
+    {
+      "id": 5,
+      "label": "Room Rent",
+      "description": "Pay room rent to owner",
+      "category": "house",
+      "done": false
+    },
+    {
+      "id": 6,
+      "label": "Gym appointment",
+      "description": "Gym appointment on 20 Dec 2021 @03 pm",
+      "category": "appointment",
+      "done": false
+    },
+    {
+      "id": 7,
+      "label": "Taxes",
+      "description": "Start doing my taxes and contact my accountant jhon for advice",
+      "category": "bureaucracy",
+      "done": false
+    },
+    {
+      "id": 8,
+      "label": "Council Taxes",
+      "description": "Setup Direct Debit or pay council tax by card ",
+      "category": "bureaucracy",
+      "done": false
+    },
+    {
+      "id": 9,
+      "label": "Flat agreement appointment",
+      "description": "Flat agreement appointment with agency",
+      "category": "appointment",
+      "done": true
+    }
+  ]
+}

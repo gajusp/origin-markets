@@ -1,0 +1,26 @@
+@import "./mixins";
+
+$icon-path: "/assets/icons";
+
+$white: #ffffff;
+$black: #000;
+
+$grey-color: #ccc;
+$title-color: #20364b;
+$spacer: 0.5rem;
+$border-color: #c7c8ca;
+$border: solid 1px $border-color;
+$bg-layer-color: #b8b9b9;
+
+// Button
+$button-width: 100%;
+$button-height: 3rem;
+$button-font-size: 1.125rem;
+$button-color: #121111;
+$btn-border-radius: 0.3125rem;
+$button-color-one: #a5a5a5;
+$button-color-two: #a9a9a9;
+
+$todo-list-bg-color: #5b5a5a;
+
+$container-box-color: #c7c7c7;
