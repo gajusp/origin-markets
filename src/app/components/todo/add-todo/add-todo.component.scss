@@ -1,0 +1,13 @@
+@import "src/assets/_variable.scss";
+
+.action-button {
+  .button-margin-space {
+    margin-right: 1rem;
+  }
+
+  @include phone-only {
+    .button-margin-space {
+      margin-bottom: 0.6rem;
+    }
+  }
+}

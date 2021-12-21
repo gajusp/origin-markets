@@ -1,0 +1,26 @@
+@import "src/assets/_variable.scss";
+
+app-container {
+  display: block;
+  margin-top: $spacer * 3;
+  border-top: $border;
+  border-bottom: $border;
+  background: $white;
+
+  .container-content {
+    padding: 2rem 2rem;
+    box-shadow: 2px 4px 9px 5px $container-box-color;
+  }
+
+  @include desktop {
+    width: 100%;
+  }
+
+  @include tablet {
+    margin: $spacer * 3 auto 0;
+    border-right: $border;
+    border-left: $border;
+    width: calc(100% - 2rem);
+    max-width: 70rem;
+  }
+}

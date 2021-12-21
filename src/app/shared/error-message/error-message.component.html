@@ -1,0 +1,8 @@
+<p class="form-control-error-message" *ngIf="
+    control &&
+    control.invalid &&
+    (control.dirty || control.touched) &&
+    control.hasError(key)
+  ">
+  <ng-content></ng-content>
+</p>

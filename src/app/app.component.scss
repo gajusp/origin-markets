@@ -1,0 +1,30 @@
+@import "../assets/variable";
+
+.pos-center-content {
+  display: flex;
+  justify-content: center;
+}
+
+.header-container {
+  @extend .pos-center-content;
+
+  .title-text {
+    font-size: 22px;
+    line-height: 1.5;
+    color: $title-color;
+    font-weight: bold;
+    font-family: "ProximaNova", sans-serif;
+  }
+
+  @include phone-only {
+    padding: 0 2rem;
+  }
+}
+
+.main-container {
+  margin: 1rem 0;
+}
+
+.footer-container {
+  @extend .pos-center-content;
+}

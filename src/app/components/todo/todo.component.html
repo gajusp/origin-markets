@@ -1,0 +1,7 @@
+<app-container>
+  <app-add-todo [todoFormGrp]="todoFormGrp" (addTodoEvent)="onAddUpdateTodoItem($event)" (clearAllEvent)="onResetFormGroup()"></app-add-todo>
+</app-container>
+
+<app-container>
+  <app-todo-list [todoList]="todoListColl" (markTodoEvent)="onMarkTodo($event)" (updateTodoEvent)="onUpdateTodo($event)" (deleteTodoEvent)="onDeleteTodo($event)"></app-todo-list>
+</app-container>

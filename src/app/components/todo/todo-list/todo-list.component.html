@@ -1,0 +1,62 @@
+<!-- Todo list Header -->
+<div class="todo-list-header">
+  <div class="todo-list-header-title">
+    <h2>Todo List</h2>
+  </div>
+
+
+
+  <div ngbDropdown container="body" class="todo-list-header-filter">
+    <div class="filter-content">
+      <span class="filter-type-icon"></span>
+      <button class="btn-outline-primary" ngbDropdownToggle>
+        {{ filterType | titlecase }}
+      </button>
+    </div>
+
+    <div ngbDropdownMenu>
+      <button ngbDropdownItem [ngClass]="{ 'selected-filter-type': filterType === todoFilterType.All }" (click)=" onAllTask()">All</button>
+      <div class="dropdown-divider"></div>
+      <button ngbDropdownItem [ngClass]="{ 'selected-filter-type': filterType === todoFilterType.Pending }" (click)="onPendingTask()">Pending</button>
+      <div class="dropdown-divider"></div>
+      <button ngbDropdownItem [ngClass]="{ 'selected-filter-type': filterType === todoFilterType.Complete }" (click)="onCompletedTask()">Complete</button>
+    </div>
+  </div>
+</div>
+
+<!-- Todo list task container -->
+<div class="todo-list-container">
+  <ng-container *ngIf="todoList?.length">
+    <div class="todo-task mb-2" *ngFor="let item of todoList | todoFilter: filterType; trackBy: todoTrackByFn" [ngClass]="{ 'task-complete': item.done }">
+      <!-- Title & Action button icons -->
+      <div class="todo-task-header">
+        <div class="todo-task-header-title pb-1">
+          <h5 class="task-title" [title]="item.label" [ngClass]="{ 'strike-through-task': item.done }">
+            {{ item.label }}
+          </h5>
+        </div>
+
+        <!-- Action button -->
+        <div class="todo-task-header-action-btn">
+          <img id="markDone" class="action-icon mr-space" src="../../../../assets/icons/check-mark-square.svg" (click)="onMarkDone(item)" />
+          <img id="updateTask" class="action-icon mr-space" src="../../../../assets/icons/edit-square.svg" (click)="onUpdateTask(item)" />
+          <img id="deleteTask" class="action-icon" src="../../../../assets/icons/delete.svg" (click)="onDeleteTask(item)" />
+        </div>
+      </div>
+
+      <div class="todo-task-desc">
+        <p [ngClass]="{ 'strike-through-task': item.done }">
+          {{ item.description }}
+        </p>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="!(todoList | todoFilter: filterType)?.length">
+    <div class="todo-list-container">
+      <div class="todo-task">
+        <h3>No task in {{ filterType }} section.</h3>
+      </div>
+    </div>
+  </ng-container>
+</div>

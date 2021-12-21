@@ -1,0 +1,39 @@
+<form [formGroup]="todoFormGrp" (ngSubmit)="onAddUpdateItem()">
+  <h2>Add Task</h2>
+
+  <div class="form-group">
+    <label for="tile"> Title </label>
+    <input id="tile" type="text" class="form-control" formControlName="label" placeholder="Please enter title" />
+
+    <app-error-message formControlName="label" key="required">Please enter title</app-error-message>
+  </div>
+
+  <div class="form-group">
+    <label for="category">Category</label>
+    <select class="form-control" id="category" formControlName="category">
+      <option [value]="null" disabled>Please select category</option>
+      <option *ngFor="let categoryItem of todoCategory" [value]="categoryItem">
+        {{ categoryItem }}
+      </option>
+    </select>
+
+    <app-error-message formControlName="category" key="required">Please enter category</app-error-message>
+  </div>
+
+  <div class="form-group">
+    <label for="description"> Description </label>
+    <textarea id="description" name="description" class="form-control" formControlName="description" placeholder="Please enter description"></textarea>
+
+    <app-error-message formControlName="description" key="required">Please enter description</app-error-message>
+  </div>
+
+  <div class="action-button">
+    <button class="button-margin-space btn primary" type="submit">
+      {{ isUpdateMode ? "Update" : "Add" }}
+    </button>
+
+    <button class="btn secondary" type="button" (click)="onResetForm()">
+      clear
+    </button>
+  </div>
+</form>
