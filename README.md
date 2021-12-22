@@ -22,9 +22,9 @@ Run below command.
 `npm run server`  
 `npm run start`
 
-## Client : Navigate to `http://localhost:4300/`
+### Client : Navigate to `http://localhost:4300/`
 
-## Backend : Navigate to `http://localhost:3000/tasks`
+### Backend : Navigate to `http://localhost:3000/tasks`
 
 ## Build
 
